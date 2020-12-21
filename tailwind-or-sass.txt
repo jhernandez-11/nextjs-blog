@@ -1,0 +1,33 @@
+step 1: create a top-level directory file named postcss.config.js
+
+step 2: npm install tailwindcss postcss-preset-env postcss-flexbugs-fixes
+
+step 3: include the following code to file created in step 1 - 
+module.exports = {
+ // to remove unused css
+  purge: [
+    // Use *.tsx if using TypeScript
+    './pages/**/*.js',
+    './components/**/*.js'
+  ],
+  plugins: [
+    'tailwindcss',
+    'postcss-flexbugs-fixes',
+    [
+      'postcss-preset-env',
+      {
+        autoprefixer: {
+          flexbox: 'no-2009'
+        },
+        stage: 3,
+        features: {
+          'custom-properties': false
+        }
+      }
+    ]
+  ]
+}
+
+
+
+For sass, just use 'npm install sass' and use '.module.sass' extension.
